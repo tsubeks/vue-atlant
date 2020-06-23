@@ -12,13 +12,15 @@
     @resizing="onResize"
     @activated="onActivated"
     :parent="true"
+    class-name="container"
   >
     <div class="header">
       <div class="remove" v-on:click.stop="onRemove">✗</div>
       Title {{ parseInt(block.id) + 1 }}
     </div>
     <p>
-      X: {{ block.x }} / Y: {{ block.y }} <br /> W: {{ block.width }} / H:
+      X: {{ block.x }} / Y: {{ block.y }} <br />
+      W: {{ block.width }} / H:
       {{ block.height }}
     </p>
   </vue-draggable-resizable>
@@ -71,10 +73,17 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  border-radius: 8px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.32);
+  background: purple;
+  color: white;
+}
+
 .header {
-  background: white;
-  color: purple;
-  cursor: move;
+  border-radius: 8px;
+  background: purple;
+  color: white;
   font-size: 24px;
   display: flex;
   width: 100%;
@@ -88,6 +97,6 @@ export default {
   left: 8px;
   cursor: pointer;
   font-size: 24px;
-  color: purple;
+  color: white;
 }
 </style>
