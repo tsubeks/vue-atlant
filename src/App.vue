@@ -17,16 +17,29 @@ export default {
 </script>
 
 <style>
+html { height:100%; }
+body { position:absolute; top:0; bottom:0; right:0; left:0; margin: 0 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .router-link-active {
+    text-decoration: none;
     background: tomato;
+    color: white;
+}
+
+a {
+    color: black;
+    padding: 8px 0;
+    text-decoration: none;
 }
 </style>

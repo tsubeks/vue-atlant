@@ -1,0 +1,72 @@
+<template>
+  <vue-draggable-resizable
+    :w="block.width"
+    :h="block.height"
+    @dragging="onDrag"
+    @resizing="onResize"
+    :parent="true"
+  >
+    <div class="header">
+      <div class="remove">✗</div>
+      Title {{ block.id }}
+    </div>
+    <p>
+      X: {{ block.x }} / Y: {{ block.y }} - Width: {{ block.width }} / Height:
+      {{ block.height }}
+    </p>
+  </vue-draggable-resizable>
+</template>
+
+<script>
+import VueDraggableResizable from "vue-draggable-resizable";
+import "vue-draggable-resizable/dist/VueDraggableResizable.css";
+
+export default {
+  name: "DeskBlock",
+  components: { VueDraggableResizable },
+  props: ["block"],
+  methods: {
+    onResize: function(x, y,width,height) {
+      this.$store.commit("desk/onResize", { id: this.block.id, x, y, width, height });
+    },
+    onDrag: function(x, y) {
+      this.$store.commit("desk/onDrag",  { id: this.block.id, x, y });
+    },
+  },
+};
+</script>
+
+<style scoped>
+.container {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: center;
+  width: calc(100% - 64px);
+  margin: 16px;
+  padding: 0px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.32);
+  border-radius: 8px;
+}
+
+.header {
+  background: lightgreen;
+  cursor: move;
+  font-size: 24px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.remove {
+  position: absolute;
+  top: 0px;
+  left: 8px;
+  cursor: pointer;
+  font-size: 24px;
+  color: tomato;
+}
+</style>
