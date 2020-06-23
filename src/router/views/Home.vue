@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>Home page.</h2>
-        <img src="@/kitty.gif"/>
+        <img alt="kitty" src="@/kitty.gif"/>
     </div>
 </template>
 

@@ -82,13 +82,15 @@ export default {
   width: calc(100% - 64px);
   margin: 16px;
   padding: 0px;
-  background: tomato;
+  background: purple;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.32);
   border-radius: 8px;
+  color: white;
 }
 
 .header {
-  background: lightgreen;
+  background: white;
+  color: purple;
   cursor: move;
   font-size: 24px;
   display: flex;
@@ -103,6 +105,6 @@ export default {
   left: 8px;
   cursor: pointer;
   font-size: 24px;
-  color: tomato;
+  color: purple;
 }
 </style>

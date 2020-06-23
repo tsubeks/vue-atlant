@@ -35,8 +35,12 @@ body { position:absolute; top:0; bottom:0; right:0; left:0; margin: 0 }
 
 .router-link-active {
     text-decoration: none;
-    background: tomato;
+    background: purple;
     color: white;
+}
+
+h2,h3,h4 {
+  color: black;
 }
 
 a {
