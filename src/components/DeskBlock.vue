@@ -1,23 +1,32 @@
 <template>
   <vue-draggable-resizable
+    :min-width="minSize"
+    :min-height="minSize"
+    :grid="[inc, inc]"
+    :z="findZIndex()"
+    :x="block.x"
+    :y="block.y"
     :w="block.width"
     :h="block.height"
     @dragging="onDrag"
     @resizing="onResize"
+    @activated="onActivated"
     :parent="true"
+    class="container"
   >
     <div class="header">
-      <div class="remove">✗</div>
+      <div class="remove" v-on:click.stop="onRemove">✗</div>
       Title {{ block.id }}
     </div>
     <p>
-      X: {{ block.x }} / Y: {{ block.y }} - Width: {{ block.width }} / Height:
+      X: {{ block.x }} / Y: {{ block.y }} <br /> W: {{ block.width }} / H:
       {{ block.height }}
     </p>
   </vue-draggable-resizable>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import VueDraggableResizable from "vue-draggable-resizable";
 import "vue-draggable-resizable/dist/VueDraggableResizable.css";
 
@@ -25,12 +34,38 @@ export default {
   name: "DeskBlock",
   components: { VueDraggableResizable },
   props: ["block"],
+  computed: {
+    ...mapState("desk", ["blocks", "inc", "minSize", "order"]),
+  },
   methods: {
-    onResize: function(x, y,width,height) {
-      this.$store.commit("desk/onResize", { id: this.block.id, x, y, width, height });
+    findZIndex: function() {
+      return this.order[this.block.id];
+    },
+    onRemove: function() {
+      this.$store.commit("desk/onRemove", {
+        id: this.block.id,
+      });
+    },
+    onResize: function(x, y, width, height) {
+      this.$store.commit("desk/onResize", {
+        id: this.block.id,
+        x,
+        y,
+        width,
+        height,
+      });
     },
     onDrag: function(x, y) {
-      this.$store.commit("desk/onDrag",  { id: this.block.id, x, y });
+      this.$store.commit("desk/onDrag", {
+        id: this.block.id,
+        x,
+        y,
+      });
+    },
+    onActivated: function() {
+      this.$store.commit("desk/onActivated", {
+        id: this.block.id,
+      });
     },
   },
 };
@@ -47,6 +82,7 @@ export default {
   width: calc(100% - 64px);
   margin: 16px;
   padding: 0px;
+  background: tomato;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.32);
   border-radius: 8px;
 }

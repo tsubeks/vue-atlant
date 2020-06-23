@@ -52,11 +52,11 @@ export default {
 
   h4 {
     margin: 4px;
-    text-decoration: underline;
+    font-weight: 700;
   }
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
     overflow: hidden;
     max-width: 80%;
     text-overflow: ellipsis;
