@@ -12,7 +12,6 @@
     @resizing="onResize"
     @activated="onActivated"
     :parent="true"
-    class="container"
   >
     <div class="header">
       <div class="remove" v-on:click.stop="onRemove">✗</div>
@@ -72,22 +71,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  position: absolute;
-  display: flex;
-  flex-flow: column;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  align-items: center;
-  width: calc(100% - 64px);
-  margin: 16px;
-  padding: 0px;
-  background: purple;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.32);
-  border-radius: 8px;
-  color: white;
-}
-
 .header {
   background: white;
   color: purple;
