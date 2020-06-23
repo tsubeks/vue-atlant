@@ -1,5 +1,5 @@
 import Vue from "vue";
-// initial state
+
 const state = () => ({
   socket: {
     isConnected: false,
@@ -10,10 +10,8 @@ const state = () => ({
   totalValue: 0,
 });
 
-// getters
 const getters = {};
 
-// actions
 const actions = {
   sendMessage: function(context, message) {
     Vue.prototype.$socket.send(message);
@@ -32,7 +30,6 @@ const actions = {
   },
 };
 
-// mutations
 const mutations = {
   SOCKET_ONOPEN(state, event) {
     Vue.prototype.$socket = event.currentTarget;
@@ -71,7 +68,7 @@ const mutations = {
 };
 
 export default {
-  // FIXME: please
+  // FIXME: current code can't support namespace in this module, probably because of default handler in a vue-native-ws lib
   namespaced: false,
   state,
   getters,
