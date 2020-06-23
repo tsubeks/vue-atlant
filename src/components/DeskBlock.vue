@@ -11,9 +11,10 @@
     @dragging="onDrag"
     @resizing="onResize"
     @activated="onActivated"
-    :parent="true"
+    :parent="false"
     class-name="container"
   >
+    <!-- TODO: parent height is important -->
     <div class="header">
       <div class="remove" v-on:click.stop="onRemove">✗</div>
       Title {{ parseInt(block.id) + 1 }}

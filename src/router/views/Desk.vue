@@ -9,6 +9,7 @@
     >
       ⤺ Restore previous block
     </button>
+    <!-- TODO: parent height is important -->
     <div class="grid">
       <DeskBlock v-for="(block, index) in blocks" :block="block" :key="index" />
     </div>
