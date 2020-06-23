@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h2 :style="{ color: socket.isConnected ? 'green' : 'red' }">
+    <h2>
       Unconfirmed transactions page.
+    </h2>
+    <h2 :style="{ color: socket.isConnected ? 'green' : 'red' }">
+      {{ socket.isConnected ? 'Connected' : 'Disconnected'}}
     </h2>
     <div>
       <button @click="unconfirmedSub">Subscribe</button>
@@ -50,5 +53,9 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  button {
+    margin: 0 16px;
   }
 </style>
