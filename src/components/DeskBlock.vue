@@ -14,7 +14,6 @@
     :parent="true"
     class="container"
   >
-    <!-- TODO: parent height is important -->
     <div class="header">
       <div class="remove" v-on:click.stop="onRemove">✗</div>
       Title {{ parseInt(block.id) + 1 }}
@@ -75,6 +74,7 @@ export default {
 
 <style scoped>
 .container {
+  margin: 16px;
   border-radius: 8px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.32);
   background: purple;

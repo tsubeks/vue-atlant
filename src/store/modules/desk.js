@@ -3,13 +3,13 @@ const state = () => ({
   minSize: 100,
   order: [4, 3, 2, 1, 0],
   blocks: [
-    { id: "0", x: 0, y: 100, width: 300, height: 100 },
+    { id: "0", x: 0, y: 0, width: 300, height: 100 },
     { id: "1", x: 0, y: 110, width: 300, height: 100 },
     { id: "2", x: 0, y: 220, width: 300, height: 100 },
     { id: "3", x: 0, y: 330, width: 300, height: 100 },
   ],
   // FIXME: in dev mode this somehow returns to default, but persist state changes
-  removed: [{ id: "4", x: 180, y: 300, width: 300, height: 200 }],
+  removed: [{ id: "4", x: 0, y: 300, width: 300, height: 200 }],
 });
 
 const getters = {};
