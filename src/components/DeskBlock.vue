@@ -11,8 +11,8 @@
     @dragging="onDrag"
     @resizing="onResize"
     @activated="onActivated"
-    :parent="false"
-    class-name="container"
+    :parent="true"
+    class="container"
   >
     <!-- TODO: parent height is important -->
     <div class="header">
