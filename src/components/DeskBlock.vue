@@ -16,7 +16,7 @@
   >
     <div class="header">
       <div class="remove" v-on:click.stop="onRemove">✗</div>
-      Title {{ block.id }}
+      Title {{ parseInt(block.id) + 1 }}
     </div>
     <p>
       X: {{ block.x }} / Y: {{ block.y }} <br /> W: {{ block.width }} / H:

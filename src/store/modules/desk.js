@@ -4,10 +4,11 @@ const state = () => ({
   order: [4, 3, 2, 1, 0],
   blocks: [
     { id: "0", x: 50, y: 100, width: 300, height: 100 },
-    { id: "1", x: 450, y: 800, width: 300, height: 100 },
-    { id: "2", x: 850, y: 1100, width: 300, height: 100 },
-    { id: "3", x: 950, y: 800, width: 300, height: 100 },
+    { id: "1", x: 250, y: 200, width: 300, height: 100 },
+    { id: "2", x: 150, y: 300, width: 300, height: 100 },
+    { id: "3", x: 350, y: 200, width: 300, height: 100 },
   ],
+  // FIXME: in dev mode this somehow returns to default, but persist state changes
   removed: [{ id: "4", x: 180, y: 300, width: 300, height: 200 }],
 });
 
@@ -15,7 +16,7 @@ const getters = {};
 
 const actions = {};
 
-// FIXME: there is no common util for flexibility
+// there is no common util for flexibility
 const mutations = {
   onResize: function(state, { id, x, y, width, height }) {
     // find index in array by id
