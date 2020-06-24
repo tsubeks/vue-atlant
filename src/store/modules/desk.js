@@ -1,5 +1,5 @@
 const state = () => ({
-  inc: 10,
+  inc: 20,
   minSize: 100,
   order: [4, 3, 2, 1, 0],
   blocks: [
@@ -8,7 +8,6 @@ const state = () => ({
     { id: "2", x: 0, y: 220, width: 300, height: 100 },
     { id: "3", x: 0, y: 330, width: 300, height: 100 },
   ],
-  // FIXME: in dev mode this somehow returns to default, but persist state changes
   removed: [{ id: "4", x: 0, y: 300, width: 300, height: 200 }],
 });
 
@@ -18,6 +17,10 @@ const actions = {};
 
 // there is no common util for flexibility
 const mutations = {
+  onCellChange: function(state, inc) {
+    state.inc = inc;
+  },
+
   onResize: function(state, { id, x, y, width, height }) {
     // find index in array by id
     const idx = state.blocks.findIndex((block) => block.id === id);

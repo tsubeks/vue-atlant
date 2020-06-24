@@ -74,7 +74,6 @@ export default {
 
 <style scoped>
 .container {
-  margin: 16px;
   border-radius: 8px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.32);
   background: purple;
